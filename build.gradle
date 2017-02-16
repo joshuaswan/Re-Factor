@@ -1,0 +1,44 @@
+allprojects {
+    group = "com.joshua"
+    version = "1.0.0-SNAPSHOT"
+
+    apply plugin: "java"
+    apply plugin: "idea"
+    apply plugin: "maven-publish"
+
+    sourceCompatibility = "1.8"
+    [compileJava, compileTestJava]*.options*.encoding = "UTF-8"
+
+    project.ext{
+        shadowjarVersion = "1.2.3"
+        antVersion = "1.9.7"
+        junitVersion = "4.12"
+    }
+
+    buildscript{
+        repositories {
+            maven { url "http://maven.aliyun.com/nexus/content/groups/public"};
+            jcenter();
+            mavenCentral();
+        }
+
+        dependencies {
+            classpath "org.apache.ant:ant:$antVersion"
+            classpath "com.github.jengelman.gradle.plugins:shadow:$shadowjarVersion"
+        }
+    }
+    repositories {
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public"};
+        maven { url "http://repo.spring.io/release"};
+        jcenter();
+        mavenCentral();
+    }
+
+    dependencies {
+        testCompile "junit:junit:$junitVersion"
+    }
+
+    task sourceJar(type: Jar){
+        from sourceSets.main.allSource
+    }
+}
