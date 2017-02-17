@@ -5,13 +5,26 @@ package com.joshua.extractMethod;
  */
 public class Order {
 
+    private double basePrice;
+
     public Double getAmount() {
         return amount;
+    }
+
+    public Order() {
     }
 
     public Order(Double amount) {
         this.amount = amount;
     }
 
+    public void setBasePrice(double basePrice) {
+        this.basePrice = basePrice;
+    }
+
     private Double amount;
+
+    public double basePrice() {
+        return basePrice;
+    }
 }
