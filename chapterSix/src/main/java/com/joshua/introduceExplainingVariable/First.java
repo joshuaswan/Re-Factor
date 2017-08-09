@@ -16,13 +16,21 @@ public class First {
     }
 
     public boolean isOperation(){
-        if ((platform.toUpperCase().indexOf("MAC")>-1) &&
-                (browser.toUpperCase().indexOf("IE")> -1) &&
-                wasInitialized() && resize > 0){
+//        if ((platform.toUpperCase().indexOf("MAC")>-1) &&
+//                (browser.toUpperCase().indexOf("IE")> -1) &&
+//                wasInitialized() && resize > 0){
+//            return true;
+//        }
+//        else
+//            return false;
+        final boolean isMacOs = platform.toUpperCase().indexOf("MAX") > -1;
+        final boolean isIEBrowser = browser.toUpperCase().indexOf("IE") > -1;
+        final boolean wasResized = resize >0;
+        if (isMacOs && isIEBrowser && wasInitialized() && wasResized){
             return true;
-        }
-        else
+        }else {
             return false;
+        }
     }
 
     public void initialized(){
