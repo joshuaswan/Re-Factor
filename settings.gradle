@@ -1,3 +1,5 @@
 include 'chapterOne'
 include 'chapterSix'
+include 'chapterSeven'
+include 'chapterEight'
 
