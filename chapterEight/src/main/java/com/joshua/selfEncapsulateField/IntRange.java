@@ -5,9 +5,15 @@ package com.joshua.selfEncapsulateField;
  */
 public class IntRange {
 
-    private int low,high;
+    private int low, high;
 
     public IntRange(int low, int high) {
+//        this.low = low;
+//        this.high = high;
+        initialize(low,high);
+    }
+
+    private void initialize(int low, int high) {
         this.low = low;
         this.high = high;
     }
@@ -28,7 +34,7 @@ public class IntRange {
         this.high = high;
     }
 
-    public boolean includes(int arg){
-        return arg >= getLow() && arg<=getHigh();
+    public boolean includes(int arg) {
+        return arg >= getLow() && arg <= getHigh();
     }
 }
